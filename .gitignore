@@ -1,3 +1,4 @@
 time.txt
-node_mobdule/
+node_modules/
 dist/
+package-lock.json
