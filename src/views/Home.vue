@@ -2,18 +2,21 @@
 
 <template>
   <div class="about">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Logo Pokémon">
-    <h1>This is the Home page</h1>
+
+
+    <h1>Welcome to my super VueJS pokédex</h1>
     <p>{{ this.$route.params.id }}</p>
     <p>{{ this.$route.params.curOffSet }}</p>
     
     <hr>
 
-
-
     <div>
       <!-- {{ arrPokemons }} -->
+      <form action="#" @submit.prevent="handleSubmit()" >
+        <input type="text" placeholder="Search a Pokémon..." focus>
+        <button type="submit">Submit</button>
+      </form>
+
     </div>
 
     <div class="pokegrid" v-if="arrPokemons.length > 0">
@@ -33,7 +36,7 @@
     </div>
 
     <div>
-      <button @click="addOffset">I want more Pokémons</button>
+      <button @click="addOffset">Show me more Pokémons</button>
     </div>
 
 
@@ -62,6 +65,13 @@
           addOffset() {
             console.log(this.offset += 20);
             this.fetchData(this.offset);
+          },
+
+          handleSubmit() {
+            const INPUT = document.querySelector("input").value;
+
+            console.log(INPUT);
+            window.location.replace(`http://localhost:8080/about/${INPUT}`);
           },
 
 
