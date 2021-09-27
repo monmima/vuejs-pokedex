@@ -23,7 +23,7 @@
 
         <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
           <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
-          <router-link :to="`/about/${index}`" target="_blank" :title="item.name">{{ item.name }}</router-link>
+          <router-link :to="`/about/${item.id}`" target="_blank" :title="item.name">{{ item.name }}</router-link>
         </figure>
 
     </div>
@@ -48,7 +48,6 @@
             return {
                 response: [],
                 offset: 0,
-                responseOne: [],
                 arrPokemons: []
             }
         },
@@ -76,17 +75,8 @@
 
                   .then(data => this.response = data) // pass the data to the response variable
 
-                  // .then(console.log("test"))
-                  // .then(console.log("other test"))
-
-                  // .then(data => console.log(data)) // print to the console
-
                   .then(data => {
-                    // let x = data; 
-                    // for (let i = 0; i < 10; i++) {
-                    //   console.log(data);
                     this.arrPokemons.push(data);
-                    // console.log(this.arrPokemons);
                   })
 
               .catch(function (err) {
@@ -95,10 +85,9 @@
 
             } // end of for loop
 
+            console.log(this.arrPokemons);
+
           } // end of fetch data
-
-
-
 
         },
 
