@@ -4,7 +4,7 @@
   <div class="about">
 
 
-    <h1>Welcome to my super VueJS pokédex</h1>
+    <h1>Welcome to my super VueJS Pokédex</h1>
     <p>{{ this.$route.params.id }}</p>
     <p>{{ this.$route.params.curOffSet }}</p>
     
@@ -14,7 +14,7 @@
       <!-- {{ arrPokemons }} -->
       <form action="#" @submit.prevent="handleSubmit()" >
         <input type="text" placeholder="Search a Pokémon..." focus>
-        <button type="submit">Submit</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
       </form>
 
     </div>
@@ -36,7 +36,7 @@
     </div>
 
     <div>
-      <button @click="addOffset">Show me more Pokémons</button>
+      <button class="btn btn-primary" @click="addOffset">Show me more Pokémons</button>
     </div>
 
 

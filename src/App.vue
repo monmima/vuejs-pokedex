@@ -5,7 +5,21 @@
         <router-link to="/" title="Home Page"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Logo Pokémon"></router-link>
   </div>
   <router-view/>
+  <Footer />
 </template>
+
+<script>
+import Footer from './components/Footer.vue'
+
+
+export default {
+  name: 'App',
+  components: {
+    Footer
+  }
+}
+</script>
+
 
 <style>
 #app {
