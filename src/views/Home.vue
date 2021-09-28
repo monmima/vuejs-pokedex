@@ -96,8 +96,13 @@
           handleSubmit() {
             const INPUT = document.querySelector("input").value;
 
-            console.log(INPUT);
-            window.location.replace(`/about/${INPUT}`);
+            // console.log(INPUT);
+            if (INPUT.length > 0) {
+              window.location.replace(`/about/${INPUT}`);
+            } else {
+              alert("The input field must not be empty.");
+            }
+
           },
 
 
