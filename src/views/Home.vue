@@ -143,8 +143,6 @@
 
 <style scoped lang="scss">
 
-
-
   button {
     margin: 20px;
     padding: 5px;
