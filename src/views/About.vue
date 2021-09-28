@@ -11,20 +11,20 @@
 
 
       <div class="picture-box">
-        <p><strong>{{ response.name }}</strong></p>
+        <p><strong>{{ response.name.toUpperCase() }}</strong></p>
         <!-- <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.$route.params.id }.png`" alt=""> -->
         <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
         <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt="">
       </div>
 
       <div class="info-box">
-        <div>Base experience: {{ response.base_experience }}</div>
-        <div>{{ response.stats[0].stat.name }}: {{ response.stats[0].base_stat }}</div>
-        <div>{{ response.stats[1].stat.name }}: {{ response.stats[1].base_stat }}</div>
-        <div>{{ response.stats[2].stat.name }}: {{ response.stats[2].base_stat }}</div>
-        <div>{{ response.stats[3].stat.name }}: {{ response.stats[3].base_stat }}</div>
-        <div>{{ response.stats[4].stat.name }}: {{ response.stats[4].base_stat }}</div>
-        <div>{{ response.stats[5].stat.name }}: {{ response.stats[5].base_stat }}</div>
+        <div>BASE EXPERIENCE: {{ response.base_experience }}</div>
+        <div>{{ response.stats[0].stat.name.toUpperCase() }}: {{ response.stats[0].base_stat }}</div>
+        <div>{{ response.stats[1].stat.name.toUpperCase() }}: {{ response.stats[1].base_stat }}</div>
+        <div>{{ response.stats[2].stat.name.toUpperCase() }}: {{ response.stats[2].base_stat }}</div>
+        <div>{{ response.stats[3].stat.name.toUpperCase() }}: {{ response.stats[3].base_stat }}</div>
+        <div>{{ response.stats[4].stat.name.toUpperCase() }}: {{ response.stats[4].base_stat }}</div>
+        <div>{{ response.stats[5].stat.name.toUpperCase() }}: {{ response.stats[5].base_stat }}</div>
 
       </div>
 
