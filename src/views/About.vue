@@ -7,7 +7,7 @@
     <hr>
 
     <!-- condition to check if response object is empty -->
-    <div class="flex-one-pokemon" v-if="Object.entries(response).length > 0">
+    <div class="grid-one-pokemon" v-if="Object.entries(response).length > 0">
 
 
       <div class="picture-box">
@@ -128,7 +128,7 @@
     background-color: black;
   }
 
-  .flex-one-pokemon {
+  .grid-one-pokemon {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -163,6 +163,7 @@
     width: 300px;
     height: 200px;
     /* border: 1px solid #f1f1f1; */
+    margin-bottom: 20px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 
 
@@ -212,6 +213,50 @@
   /* Style the back side */
   .flip-card-back {
     transform: rotateY(180deg);
-  } 
+  }
+
+  /* media queries */
+
+  @media screen and (max-width: 1025px) {
+      body
+      {
+          font-size: 0.8em;         
+      }
+      /* NO MORE GRID HERE, ONLY FLEX */
+      .grid-one-pokemon {
+          display: flex;
+
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+      }
+  }
+  // @media screen and (min-width: 760px) and (max-width: 960px) {
+  //     body
+  //     {
+  //         font-size: 1em;
+  //     }
+  //     div, figure, figcaption {
+  //         width: 150px;
+  //     }
+  // }
+  // @media screen and (min-width: 961px) and (max-width: 1100px) {
+  //     body
+  //     {
+  //         font-size: 1.2em;
+  //     }
+  //     div, figure, figcaption {
+  //         width: 200px;
+  //     }
+  // }
+  // @media screen and (min-width: 1100px) {
+  //     body
+  //     {
+  //         font-size: 1.3em;
+  //     }
+  //     div, figure, figcaption {
+  //         width: 250px;
+  //     }
+  // }
 
 </style>
