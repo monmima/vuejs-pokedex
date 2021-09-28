@@ -25,6 +25,7 @@
       </li> -->
 
         <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
+          
 
           <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
           <router-link :to="`/about/${item.id}`" target="_blank" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
@@ -140,7 +141,10 @@
 
 </script>
 
-<style>
+<style scoped lang="scss">
+
+
+
   button {
     margin: 20px;
     padding: 5px;

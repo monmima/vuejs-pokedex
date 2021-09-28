@@ -122,11 +122,10 @@
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .banner-badge {
     color: white;
     background-color: black;
-    margin-bottom: 20px;
   }
 
   .flex-one-pokemon {
