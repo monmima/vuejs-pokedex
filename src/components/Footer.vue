@@ -22,7 +22,7 @@
 
       <p>I have also created a <a href="https://mon-super-pokedex.herokuapp.com/" title="NodeJS Pokédex">very similar project using NodeJS</a>.</p>
 
-      <p>September 2021</p>
+      <p><time datetime="2021-09">September 2021</time></p>
 
     </footer>
 
