@@ -9,11 +9,11 @@
         <p>This project was made possible thanks to:</p>
 
         <ul>
-          <li>VueJS</li>
+          <li>VueJS 3</li>
           <li>PokéAPI</li>
           <li>Bootstrap</li>
-          <li>Heroku</li>
-          <li>Github</li>
+          <li>Heroku (<a href="https://vuejs-pokedex.herokuapp.com/" title="Link to the project on Heroku">project on Heroku</a>)</li>
+          <li>Github (<a href="https://github.com/monmima/vuejs-pokedex" title="Link to the project on Github">project on Github</a>)</li>
         </ul>
 
       </div>
