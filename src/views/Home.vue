@@ -71,7 +71,7 @@
             const INPUT = document.querySelector("input").value;
 
             console.log(INPUT);
-            window.location.replace(`http://localhost:8080/about/${INPUT}`);
+            window.location.replace(`/about/${INPUT}`);
           },
 
 
