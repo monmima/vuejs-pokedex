@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Pokémon Details Page</h1>
     <p>Parameter used for this query: {{ this.$route.params.id }}</p>
     <!-- <p>{{ this.response.id }}</p> -->
     
@@ -11,10 +11,29 @@
 
 
       <div class="picture-box">
-        <p><strong>{{ response.name.toUpperCase() }}</strong></p>
+        <!-- <p><strong>{{ response.name.toUpperCase() }}</strong></p> -->
         <!-- <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.$route.params.id }.png`" alt=""> -->
-        <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
-        <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt="">
+
+        <!-- images, no flip card -->
+        <!-- <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
+        <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt=""> -->
+
+        <!-- images in a flip card -->
+
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <!-- <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> -->
+              <h5>{{ response.name.toUpperCase() }} - FRONT</h5>
+              <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
+            </div>
+            <div class="flip-card-back">
+              <h5>{{ response.name.toUpperCase() }} - BACK</h5>
+              <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt="">
+            </div>
+          </div>
+        </div> 
+
       </div>
 
       <div class="info-box">
@@ -76,4 +95,71 @@
 
     grid-template-columns: 1fr 1fr;
   }
+
+  .picture-box {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* W3Schools flip card */
+
+  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    /* border: 1px solid #f1f1f1; */
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+
+
+  }
+
+  .flip-card {
+    box-shadow: 5px 5px 5px;
+  }
+
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+  }
+
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    /* Style the front side (fallback if image is missing) */
+    background-color: #F8F9FA;
+    color: black;
+    
+
+    /* Position the front and back side */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+
+    /* flex */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  /* Style the back side */
+  .flip-card-back {
+    transform: rotateY(180deg);
+  } 
+
 </style>
