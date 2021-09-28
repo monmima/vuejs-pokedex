@@ -36,14 +36,47 @@
 
       </div>
 
+
       <div class="info-box">
-        <div>BASE EXPERIENCE: {{ response.base_experience }}</div>
-        <div>{{ response.stats[0].stat.name.toUpperCase() }}: {{ response.stats[0].base_stat }}</div>
-        <div>{{ response.stats[1].stat.name.toUpperCase() }}: {{ response.stats[1].base_stat }}</div>
-        <div>{{ response.stats[2].stat.name.toUpperCase() }}: {{ response.stats[2].base_stat }}</div>
-        <div>{{ response.stats[3].stat.name.toUpperCase() }}: {{ response.stats[3].base_stat }}</div>
-        <div>{{ response.stats[4].stat.name.toUpperCase() }}: {{ response.stats[4].base_stat }}</div>
-        <div>{{ response.stats[5].stat.name.toUpperCase() }}: {{ response.stats[5].base_stat }}</div>
+
+        <!-- loop on types in the array -->
+
+        <div class="banner-badge">
+          <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
+            <!-- add a comma between each type -->
+            <span v-if="index + 1 !== response.types.length">, </span>
+          </span>
+        </div>
+
+        <!-- stats grid -->
+        <div class="grid-info-box">
+          <!-- <p>{{ response.types }}</p> -->
+        
+          <p>BASE EXPERIENCE</p>
+          <p>{{ response.base_experience }}</p>
+
+          <p>{{ response.stats[0].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[0].base_stat }}</p>
+
+          <p>{{ response.stats[1].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[1].base_stat }}</p>
+
+          <p>{{ response.stats[2].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[2].base_stat }}</p>
+
+          <p>{{ response.stats[3].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[3].base_stat }}</p>
+            
+          <p>{{ response.stats[4].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[4].base_stat }}</p>
+
+          <p>{{ response.stats[5].stat.name.toUpperCase() }}</p>
+          <p>{{ response.stats[5].base_stat }}</p>
+        </div>
+
+
+        
+
 
       </div>
 
@@ -90,10 +123,30 @@
 </script>
 
 <style scoped>
+  .banner-badge {
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+  }
+
   .flex-one-pokemon {
     display: grid;
 
     grid-template-columns: 1fr 1fr;
+  }
+
+  .info-box {
+    background-color: #F8F9FA;
+    box-shadow: 5px 5px 5px;
+    font-weight: 700;
+    padding: 10px 10px 0px 10px;
+    max-width: 500px;
+  }
+
+  .grid-info-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
   }
 
   .picture-box {
