@@ -14,6 +14,7 @@
           <li>Bootstrap</li>
           <li>Heroku (<a href="https://vuejs-pokedex.herokuapp.com/" title="Link to the project on Heroku">project on Heroku</a>)</li>
           <li>Github (<a href="https://github.com/monmima/vuejs-pokedex" title="Link to the project on Github">project on Github</a>)</li>
+          <li>W3Schools</li>
         </ul>
 
       </div>
