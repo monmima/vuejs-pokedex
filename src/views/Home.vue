@@ -84,13 +84,13 @@
         methods: {
 
           removeOffset() {
-            console.log(this.offset -= 20);
+            console.log(this.offset -= 15);
             this.fetchData(this.offset);
 
           },
 
           addOffset() {
-            console.log(this.offset += 20);
+            console.log(this.offset += 15);
             this.fetchData(this.offset);
           },
 
@@ -110,7 +110,7 @@
           fetchData(curOffset) {
             console.log(curOffset);
             
-            for (let i = curOffset + 1; i < curOffset + 19; i++) {
+            for (let i = curOffset + 1; i < curOffset + 16; i++) {
               
               fetch(`https://pokeapi.co/api/v2/pokemon/` + i)
                   .then(res => res.json())
@@ -205,7 +205,7 @@
         grid-template-columns: 1fr 1fr 1fr 1fr;
       }
   }
-  @media screen and (min-width: 1100px) {
+  @media screen and (min-width: 1230px) {
       body
       {
           font-size: 1.3em;
