@@ -144,8 +144,7 @@
 <style scoped lang="scss">
 
   button {
-    margin: 20px;
-    padding: 5px;
+    margin: 25px;
   }
 
   figure {
@@ -164,6 +163,11 @@
 
   figure img {
     max-width: 96px;
+  }
+
+  input {
+    border-radius: 5px;
+    height: 40px;
   }
 
   .pokegrid {
