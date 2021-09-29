@@ -149,6 +149,13 @@
   }
 
   figure {
+    background-color: #F8F9FA;
+    box-shadow: 5px 5px 5px;
+    margin: 50px 20px 0px;
+    min-width: 200px;
+    padding: 20px;
+
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -164,6 +171,50 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  /*MEDIA QUERIES*/
+  @media screen and (max-width: 759px) {
+      body
+      {
+          font-size: 0.8em;         
+      }
+      /* NO MORE GRID HERE, ONLY FLEX */
+      .pokegrid {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+  }
+  @media screen and (min-width: 760px) and (max-width: 960px) {
+      body
+      {
+          font-size: 1em;
+      }
+      .pokegrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+  }
+  @media screen and (min-width: 961px) and (max-width: 1100px) {
+      body
+      {
+          font-size: 1.2em;
+      }
+      .pokegrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+  }
+  @media screen and (min-width: 1100px) {
+      body
+      {
+          font-size: 1.3em;
+      }
+      .pokegrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      }
+  }
 
 
 </style>

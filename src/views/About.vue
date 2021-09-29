@@ -132,6 +132,7 @@
     display: grid;
 
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 
   .info-box {
@@ -165,7 +166,6 @@
     /* border: 1px solid #f1f1f1; */
     margin-bottom: 20px;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-
 
   }
 
