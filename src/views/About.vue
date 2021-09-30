@@ -97,24 +97,90 @@
       data() {
           return {
               response: {},
+              response2: {},
+              response3: {},
+              arrEvo: [],
               id: 0
           }
       },
+      methods: {
+        findIndexOfPokemon(str) {
+          return this.arrEvo === str;
+        },
+        async fetchOne() {
+
+          // https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api
+
+          this.response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`).then(response => response.json());
+
+          await console.log(this.response);
+
+          this.response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.$route.params.id}/`).then(response => response.json());
+
+          await console.log(this.response2);
+
+          this.response3 = await fetch(`${this.response2.evolution_chain.url}`).then(response => response.json());
+
+          // const NAME = this.response2.name;
+          // const nextEvo1 = this.response3.chain.evolves_to[0].species.name;
+          // const nextEvo2 = this.response3.chain.evolves_to[0].evolves_to[0].species.name;
+
+          // if (NAME !== nextEvo1) {
+          //   this.arrEvo.push(nextEvo1);
+          // }
+
+          // if (NAME !== nextEvo2) {
+          //   this.arrEvo.push(nextEvo2);
+          // }
+
+          // console.log(this.arrEvo);
+
+          // await console.log(this.response2.name, this.response3.chain.evolves_to[0].species.name, this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+
+          await console.log(this.response3);
+
+          // await console.log(`${this.response3.chain.evolves_to[0].evolves_to[0].species.name}`);
+          // await console.log(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+
+          this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
+          this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+          this.arrEvo = [...new Set(this.arrEvo)];
+
+          console.log(this.arrEvo);
+
+          console.log(this.arrEvo.indexOf(this.response2.name));
+
+          const indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
+
+          if (indexPokemonInArrEvo === -1) {
+            // do nothing
+            console.log(`Next evos: ${this.arrEvo[0]}, ${this.arrEvo[1]}`);
+            
+          } else if (indexPokemonInArrEvo === 0) {
+              console.log(`Next evos: ${this.arrEvo[1]}`);
+          } else {
+              console.log(`No evolution!`);
+          }
+
+        } // end of fetchOne
+      }, // end of methods
       mounted: function() {
 
-          fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`)
-            .then(res => res.json())
+        // fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`)
+        //   .then(res => res.json())
 
-            .then(data => this.response = data) // pass the data to the response variable
+        //   .then(data => this.response = data) // pass the data to the response variable
 
-            // .then(console.log("test"))
-            // .then(console.log("other test"))
+        //   // .then(console.log("test"))
+        //   // .then(console.log("other test"))
 
-            .then(data => console.log(data)) // print to the console
+        //   .then(data => console.log(data)) // print to the console
 
-          .catch(function (err) {
-              console.log('ERROR CATCHED - ' + err);
-          });
+        // .catch(function (err) {
+        //     console.log('ERROR CATCHED - ' + err);
+        // });
+
+        this.fetchOne();
 
       }
   });
