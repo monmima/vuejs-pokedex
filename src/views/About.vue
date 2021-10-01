@@ -107,7 +107,7 @@
         findIndexOfPokemon(str) {
           return this.arrEvo === str;
         },
-        async fetchOne() {
+      async fetchOne() {
 
           // https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api
 
@@ -118,17 +118,18 @@
           this.response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.$route.params.id}/`).then(response => response.json());
           await console.log(this.response2);
 
-          this.response3 = await fetch(`${this.response2.evolution_chain.url}`).then(response => response.json());
+          this.response3 = await fetch(`${this.response2.evolution_chain.url}`).then(response => response.json()).catch(console.log("Nothing Found!"));
           await console.log(this.response3);
-
 
           // push the content of queries to the array
           this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
           this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
           this.arrEvo = [...new Set(this.arrEvo)];
 
+          // log evolution array
           console.log(this.arrEvo);
 
+          // log index of current pokemon in array
           console.log(this.arrEvo.indexOf(this.response2.name));
 
           const indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
