@@ -20,7 +20,7 @@
 
       </div>
 
-      <p><time datetime="2021-09">September 2021</time></p>
+      <p><time datetime="2021">September and October 2021</time></p>
 
     </footer>
 
