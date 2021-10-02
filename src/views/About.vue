@@ -72,21 +72,24 @@
 
       </div> <!-- end of .grid-one-pokemon -->
 
-      <div v-if="indexPokemonInArrEvo === -1">
-        <div>Next evolutions:
-          <router-link :to="`/about/${arrEvo[0]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[0].toUpperCase() }}</router-link>, 
-          <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+      <!-- evolution section -->
+      <div class="mt-5">
+        <div v-if="indexPokemonInArrEvo === -1">
+          <div>Next evolutions:
+            <router-link :to="`/about/${arrEvo[0]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[0].toUpperCase() }}</router-link>, 
+            <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+          </div>
+        </div>
+        <div v-else-if="indexPokemonInArrEvo === 0">
+          <div>Next evolution:
+            <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+          </div>
+        </div>
+        <div v-else>
+          <div>No evolution for this Pokémon</div>
         </div>
       </div>
-      <div v-else-if="indexPokemonInArrEvo === 0">
-        <div>Next evolution:
-          <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
-        </div>
-      </div>
-      <div v-else>
-        <div>No evolution for this Pokémon</div>
-      </div>
-
+      <!-- end of evolution section -->
 
 
     </div> <!-- end of loop -->
