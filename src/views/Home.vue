@@ -20,41 +20,16 @@
     </div>
 
     <div class="pokegrid" v-if="arrPokemons.length > 0">
-      <!-- <li v-for="(item, index) in response" :key="`${item.title}${index}`">
-          <router-link :to="`/about/${item.url.split('/')[6]}`" target="_blank" :title="item.name">{{ item.name }}</router-link>
-      </li> -->
-
-        <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
-          
-
-          <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
-          <router-link :to="`/about/${item.id}`" target="_blank" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
 
 
-          <div class="flip-card">
+      <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
+        
 
-            <!-- <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
-                <p>
-                  <router-link :to="`/about/${item.id}`" target="_blank" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
-                </p>
-              </div>
-
-              <div class="flip-card-back">
-                <h1>John Doe</h1>
-                <p>Architect & Engineer</p>
-                <p>
-                  <router-link :to="`/about/${item.id}`" target="_blank" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
-                </p>
-              </div>
-            </div> -->
-
-          </div> 
-
-        </figure>
+        <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
+        <router-link :to="`/about/${item.id}`" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
 
 
+      </figure>
 
     </div>
 

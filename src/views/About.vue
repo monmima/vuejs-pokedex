@@ -7,88 +7,99 @@
     <hr>
 
     <!-- condition to check if response object is empty -->
-    <div class="grid-one-pokemon" v-if="Object.entries(response).length > 0">
+    <div v-if="Object.entries(response).length > 0" :key="this.$route.params.id">
 
+      <div class="grid-one-pokemon" >
 
-      <div class="picture-box">
-        <!-- <p><strong>{{ response.name.toUpperCase() }}</strong></p> -->
-        <!-- <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.$route.params.id }.png`" alt=""> -->
+        <div class="picture-box">
 
-        <!-- images, no flip card -->
-        <!-- <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
-        <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt=""> -->
-
-        <!-- images in a flip card -->
-
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <!-- <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> -->
-              <h5>{{ response.name.toUpperCase() }} - FRONT</h5>
-              <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <!-- <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"> -->
+                <h5>{{ response.name.toUpperCase() }} - FRONT</h5>
+                <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ this.response.id }.png`" alt="">
+              </div>
+              <div class="flip-card-back">
+                <h5>{{ response.name.toUpperCase() }} - BACK</h5>
+                <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt="">
+              </div>
             </div>
-            <div class="flip-card-back">
-              <h5>{{ response.name.toUpperCase() }} - BACK</h5>
-              <img :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${ this.response.id }.png`" alt="">
-            </div>
+          </div> 
+
+        </div> <!-- end of .picture-box -->
+
+
+        <div class="info-box">
+
+          <!-- loop on types in the array -->
+
+          <div class="banner-badge">
+            <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
+              <!-- add a comma between each type -->
+              <span v-if="index + 1 !== response.types.length">, </span>
+            </span>
           </div>
-        </div> 
 
+          <!-- stats grid -->
+          <div class="grid-info-box">
+            <!-- <p>{{ response.types }}</p> -->
+          
+            <p>BASE EXPERIENCE</p>
+            <p>{{ response.base_experience }}</p>
+
+            <p>{{ response.stats[0].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[0].base_stat }}</p>
+
+            <p>{{ response.stats[1].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[1].base_stat }}</p>
+
+            <p>{{ response.stats[2].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[2].base_stat }}</p>
+
+            <p>{{ response.stats[3].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[3].base_stat }}</p>
+              
+            <p>{{ response.stats[4].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[4].base_stat }}</p>
+
+            <p>{{ response.stats[5].stat.name.toUpperCase() }}</p>
+            <p>{{ response.stats[5].base_stat }}</p>
+          </div>
+
+
+        </div> <!-- end of .info-box -->
+
+      </div> <!-- end of .grid-one-pokemon -->
+
+      <div v-if="indexPokemonInArrEvo === -1">
+        <div>Next evolutions:
+          <router-link :to="`/about/${arrEvo[0]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[0].toUpperCase() }}</router-link>, 
+          <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+        </div>
+      </div>
+      <div v-else-if="indexPokemonInArrEvo === 0">
+        <div>Next evolution:
+          <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+        </div>
+      </div>
+      <div v-else>
+        <div>No evolution for this Pokémon</div>
       </div>
 
 
-      <div class="info-box">
 
-        <!-- loop on types in the array -->
+    </div> <!-- end of loop -->
 
-        <div class="banner-badge">
-          <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
-            <!-- add a comma between each type -->
-            <span v-if="index + 1 !== response.types.length">, </span>
-          </span>
-        </div>
-
-        <!-- stats grid -->
-        <div class="grid-info-box">
-          <!-- <p>{{ response.types }}</p> -->
-        
-          <p>BASE EXPERIENCE</p>
-          <p>{{ response.base_experience }}</p>
-
-          <p>{{ response.stats[0].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[0].base_stat }}</p>
-
-          <p>{{ response.stats[1].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[1].base_stat }}</p>
-
-          <p>{{ response.stats[2].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[2].base_stat }}</p>
-
-          <p>{{ response.stats[3].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[3].base_stat }}</p>
-            
-          <p>{{ response.stats[4].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[4].base_stat }}</p>
-
-          <p>{{ response.stats[5].stat.name.toUpperCase() }}</p>
-          <p>{{ response.stats[5].base_stat }}</p>
-        </div>
-
-
-        
-
-
-      </div>
-
-    </div>
-
-    <!-- if response is empty, that means something is wrong; the Pokémon might be non-existant (typing random stuff in the search form will yield this result) -->
+    <!-- response array is empty; Pokémon might be non-existant -->
     <div v-else>
       If a result for your query does not appear here after a few seconds, there was an error or your Pokémon is non-existent.
     </div>
 
 
-  </div>
+
+
+  </div> <!-- end of .about div -->
 </template>
 
 <script>
@@ -100,7 +111,8 @@
               response2: {},
               response3: {},
               arrEvo: [],
-              id: 0
+              id: 0,
+              indexPokemonInArrEvo: null
           }
       },
       methods: {
@@ -132,15 +144,9 @@
           // log index of current pokemon in array
           console.log(this.arrEvo.indexOf(this.response2.name));
 
-          const indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
+          this.indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
 
-          if (indexPokemonInArrEvo === -1) {
-            console.log(`Next evos: ${this.arrEvo[0]}, ${this.arrEvo[1]}`);
-          } else if (indexPokemonInArrEvo === 0) {
-              console.log(`Next evo: ${this.arrEvo[1]}`);
-          } else {
-              console.log(`No evolution!`);
-          }
+          return;
 
         } // end of fetchOne
       }, // end of methods
