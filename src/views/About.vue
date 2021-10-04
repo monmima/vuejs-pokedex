@@ -110,68 +110,61 @@
               response2: {},
               response3: {},
               arrEvo: [],
-              id: 0,
-              indexPokemonInArrEvo: null
+              id: 0
           }
       },
       methods: {
-        findIndexOfPokemon(str) {
-          return this.arrEvo === str;
-        },
-      async fetchOne() {
-
-          // https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api
-
-          // log the content of the queries
-          this.response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`).then(response => response.json());
-          await console.log(this.response);
-
-          this.response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.$route.params.id}/`).then(response => response.json());
-          await console.log(this.response2);
-
-          this.response3 = await fetch(`${this.response2.evolution_chain.url}`).then(response => response.json()).catch(console.log("Nothing Found!"));
-          await console.log(this.response3);
-
-          // push the content of queries to the array
-          await this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
+        handleJSON() {
+          // push an evolution to the arrEvo
+          this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
           
+          // push another evolution to arrEvo if it exists
           try {
-            await this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+            this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
           }
           catch {
-            console.log("ERROR: this.response3.chain.evolves_to[0].evolves_to[0].species.name is non-existent");
+            console.log("CAUGHT ERROR: this.response3.chain.evolves_to[0].evolves_to[0].species.name is non-existent for this Pokémon.");
           }
 
-          // remove duplicate from array
+          // remove duplicates from arrEvo
           this.arrEvo = [...new Set(this.arrEvo)];
-          
-          // console.log(this.arrEvo - 1)
-          await console.log(this.response2.name);
-
-          // empty evolution array if last item matches current evolution
+        
+          // empty arrEvo if last item (last possible evolution) matches the name of current Pokémon
           if (this.response2.name === this.arrEvo[this.arrEvo.length - 1]) {
             this.arrEvo = [];
-            console.log("Devrait fonctionner");
+          // remove name of current Pokémon from the start of arrEvo so it won't show up in the view
           } else if (this.response2.name === this.arrEvo[0]) {
             this.arrEvo.shift();
           }
 
+          // log name to console
+          console.log(`Evolution array for ${this.response2.name}:`);
           // log evolution array
-          await console.log(this.arrEvo);
+          console.log(this.arrEvo);
 
-          // log index of current pokemon in array
-          // await console.log(this.arrEvo.indexOf(this.response2.name));
+        },
+      async fetchOne() {
+          // https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api
 
-          // this.indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
+          // log the content of the queries
+          this.response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`).then(response => response.json());
+          await console.log("Fetched Pokémon:");
+          await console.log(this.response);
 
-          return;
+          this.response2 = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.$route.params.id}/`).then(response => response.json());
+          await console.log("Fetched Pokémon species:");
+          await console.log(this.response2);
+
+          this.response3 = await fetch(`${this.response2.evolution_chain.url}`).then(response => response.json());
+          await console.log("Fetched evolution chain:");
+          await console.log(this.response3);
+
+          await this.handleJSON();
 
         } // end of fetchOne
       }, // end of methods
       mounted: function() {
-
         this.fetchOne();
-
       }
   });
 
