@@ -74,21 +74,17 @@
 
       <!-- evolution section -->
       <div class="mt-5">
-        <div v-if="indexPokemonInArrEvo === -1">
-          <div>Next evolutions:
-            <router-link :to="`/about/${arrEvo[0]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[0].toUpperCase() }}</router-link>, 
-            <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
-          </div>
-        </div>
-        <div v-else-if="indexPokemonInArrEvo === 0">
-          <div>Next evolution:
-            <router-link :to="`/about/${arrEvo[1]}`" :title="arrEvo[1].toUpperCase()">{{ arrEvo[1].toUpperCase() }}</router-link>
+        <div v-if="arrEvo.length > 0">Next: 
+          <div v-for="(item, index) in arrEvo" :key="`${arrEvo[index]}-${index}`">
+            <router-link :to="`/about/${arrEvo[index]}`" :title="arrEvo[0].toUpperCase()">{{ arrEvo[index].toUpperCase() }}</router-link> 
           </div>
         </div>
         <div v-else>
           <div>No evolution for this Pokémon</div>
         </div>
       </div>
+
+
       <!-- end of evolution section -->
 
 
@@ -137,17 +133,36 @@
           await console.log(this.response3);
 
           // push the content of queries to the array
-          this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
-          this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+          await this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
+          
+          try {
+            await this.arrEvo.push(this.response3.chain.evolves_to[0].evolves_to[0].species.name);
+          }
+          catch {
+            console.log("ERROR: this.response3.chain.evolves_to[0].evolves_to[0].species.name is non-existent");
+          }
+
+          // remove duplicate from array
           this.arrEvo = [...new Set(this.arrEvo)];
+          
+          // console.log(this.arrEvo - 1)
+          await console.log(this.response2.name);
+
+          // empty evolution array if last item matches current evolution
+          if (this.response2.name === this.arrEvo[this.arrEvo.length - 1]) {
+            this.arrEvo = [];
+            console.log("Devrait fonctionner");
+          } else if (this.response2.name === this.arrEvo[0]) {
+            this.arrEvo.shift();
+          }
 
           // log evolution array
           await console.log(this.arrEvo);
 
           // log index of current pokemon in array
-          await console.log(this.arrEvo.indexOf(this.response2.name));
+          // await console.log(this.arrEvo.indexOf(this.response2.name));
 
-          this.indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
+          // this.indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
 
           return;
 
