@@ -142,10 +142,10 @@
           this.arrEvo = [...new Set(this.arrEvo)];
 
           // log evolution array
-          console.log(this.arrEvo);
+          await console.log(this.arrEvo);
 
           // log index of current pokemon in array
-          console.log(this.arrEvo.indexOf(this.response2.name));
+          await console.log(this.arrEvo.indexOf(this.response2.name));
 
           this.indexPokemonInArrEvo = this.arrEvo.indexOf(this.response2.name)
 
