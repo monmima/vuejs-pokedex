@@ -125,6 +125,11 @@
 
 <style scoped lang="scss">
 
+  @mixin grid($fr) {
+    display: grid;
+    grid-template-columns: $fr;
+  }
+
   button {
     margin: 25px;
   }
@@ -168,22 +173,17 @@
     justify-content: space-around;
   }
 
-  .pokegrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
   /*MEDIA QUERIES*/
   @media screen and (max-width: 759px) {
       body {
-          font-size: 0.8em;         
+        font-size: 0.8em;         
       }
       /* NO MORE GRID HERE, ONLY FLEX */
       .pokegrid {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
       }
   }
   @media screen and (min-width: 760px) and (max-width: 960px) {
@@ -191,8 +191,7 @@
           font-size: 1em;
       }
       .pokegrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        @include grid(1fr 1fr 1fr);
       }
   }
   @media screen and (min-width: 961px) and (max-width: 1100px) {
@@ -200,8 +199,7 @@
           font-size: 1.2em;
       }
       .pokegrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        @include grid(1fr 1fr 1fr 1fr);
       }
   }
   @media screen and (min-width: 1230px) {
@@ -209,8 +207,7 @@
           font-size: 1.3em;
       }
       .pokegrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        @include grid(1fr 1fr 1fr 1fr 1fr);
       }
   }
 
