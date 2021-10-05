@@ -160,10 +160,20 @@
       }
   });
 
-
 </script>
 
 <style scoped lang="scss">
+
+// colors
+$background-color: #F8F9FA;
+
+// mixins
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 
 /* Flip card rules by W3Schools */
 
@@ -185,7 +195,7 @@
 }
 
 .info-box {
-	background-color: #F8F9FA;
+	background-color: $background-color;
 	box-shadow: 5px 5px 5px;
 	font-weight: 700;
   max-width: 500px;
@@ -209,32 +219,24 @@
 }
 
 .flip-card-back {
-  color: black;
   backface-visibility: hidden;
-	background-color: #F8F9FA;
+	background-color: $background-color;
   height: 100%;
 	position: absolute;
   transform: rotateY(180deg);
 	width: 100%;
 
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
+  @include flex-center-center();
 }
 
 .flip-card-front {
   backface-visibility: hidden;
-	background-color: #F8F9FA;
-	color: black;
-	position: absolute;
+	background-color: $background-color;
   height: 100%;
+  position: absolute;
 	width: 100%;
 
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
+  @include flex-center-center();
 }
 
 .flip-card-inner {
@@ -247,9 +249,7 @@
 }
 
 .picture-box {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  @include flex-center-center();
 }
 
 @media screen and (max-width: 1025px) {
@@ -257,10 +257,7 @@
 		font-size: 0.8em;
 	}
 	.grid-one-pokemon {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		justify-content: center;
+    @include flex-center-center();
 	}
 }
 
