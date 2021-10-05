@@ -8,12 +8,28 @@
     
     <hr>
 
-    <div>
+    <div class="flex-media-queries">
       <!-- {{ arrPokemons }} -->
       <form action="#" @submit.prevent="handleSubmit()" >
         <input type="text" placeholder="Search a Pokémon..." focus>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
+
+      <div style="text-align: left">
+        <p>This project was made possible thanks to:</p>
+
+        <ul>
+          <li>VueJS 3</li>
+          <li>PokéAPI</li>
+          <li>Bootstrap</li>
+          <li>SCSS</li>
+          <li>Heroku (<a href="https://vuejs-pokedex.herokuapp.com/" title="Link to the project on Heroku">project on Heroku</a>)</li>
+          <li>Github (<a href="https://github.com/monmima/vuejs-pokedex" title="Link to the project on Github">project on Github</a>)</li>
+          <li>W3Schools</li>
+        </ul>
+      </div>
+
+
 
     </div>
 
@@ -121,10 +137,12 @@
     margin: 50px 20px 0px;
     min-width: 200px;
     padding: 20px;
+
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
     img {
       max-width: 96px;
     }
@@ -133,6 +151,13 @@
   input {
     border-radius: 5px;
     height: 40px;
+  }
+
+  .flex-media-queries {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   .pokegrid {
