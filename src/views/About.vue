@@ -35,10 +35,11 @@
 
           <div class="banner-badge">
             <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
-              <!-- add a comma between each type -->
-              <span v-if="index + 1 !== response.types.length">, </span>
             </span>
           </div>
+
+          <!-- description -->
+          <div v-if="response2.flavor_text_entries[0].flavor_text" class="poke-description">{{ response2.flavor_text_entries[0].flavor_text }}</div>
 
           <!-- stats grid -->
           <div class="grid-info-box">
@@ -72,6 +73,7 @@
 
       <!-- evolution section -->
       <div class="mt-5">
+
         <div v-if="arrEvo.length > 0">Next: 
           <div v-for="(item, index) in arrEvo" :key="`${arrEvo[index]}-${index}`">
             <router-link :to="`/about/${arrEvo[index]}`" :title="arrEvo[0].toUpperCase()">{{ arrEvo[index].toUpperCase() }}</router-link> 
@@ -102,8 +104,7 @@
               response: {},
               response2: {},
               response3: {},
-              arrEvo: [],
-              id: 0
+              arrEvo: []
           }
       },
       methods: {
@@ -203,6 +204,7 @@ $background-color: #F8F9FA;
 }
 
 .flip-card {
+
 	background-color: transparent;
   box-shadow: 5px 5px 5px;
   height: 200px;
@@ -250,6 +252,12 @@ $background-color: #F8F9FA;
 
 .picture-box {
   @include flex-center-center();
+}
+
+.poke-description {
+  background-color: #fff;
+  margin: 15px;
+  padding: 15px;
 }
 
 @media screen and (max-width: 1025px) {
