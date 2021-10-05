@@ -158,6 +158,7 @@
   }
 
   .credits {
+    margin: 5px;
     text-align: left;
 
     li {
@@ -194,7 +195,7 @@
         @include grid(1fr 1fr 1fr);
       }
   }
-  @media screen and (min-width: 961px) and (max-width: 1100px) {
+  @media screen and (min-width: 961px) and (max-width: 1229px) {
       body {
           font-size: 1.2em;
       }
