@@ -136,7 +136,7 @@
 
           // store data in variable; the content of the variable is then rendered in the HTML
           // used to avoid a bug in the console even if the data is rendering correctly in the HTML if this.response2.flavor_text_entries[0].flavor_text is used directly; icigo
-          this.description = this.response2.flavor_text_entries[0].flavor_text;
+          this.description = this.response2.flavor_text_entries[0].flavor_text.replace("\u000c", " ");
 
           // log name to console
           console.log(`Evolution array for ${this.response2.name}:`);
