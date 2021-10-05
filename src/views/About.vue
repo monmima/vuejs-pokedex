@@ -41,7 +41,7 @@
           </div>
 
           <!-- description -->
-          <div v-if="response2.flavor_text_entries[0].flavor_text" class="poke-description">{{ response2.flavor_text_entries[0].flavor_text }}</div>
+          <div class="poke-description">{{ description }}</div>
 
           <!-- stats grid -->
           <div class="grid-info-box">
@@ -106,7 +106,8 @@
               response: {},
               response2: {},
               response3: {},
-              arrEvo: []
+              arrEvo: [],
+              description: ""
           }
       },
       methods: {
@@ -132,6 +133,8 @@
           } else if (this.response2.name === this.arrEvo[0]) {
             this.arrEvo.shift();
           }
+
+          this.description = this.response2.flavor_text_entries[0].flavor_text;
 
           // log name to console
           console.log(`Evolution array for ${this.response2.name}:`);
