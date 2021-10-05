@@ -168,8 +168,8 @@
 /* Flip card rules by W3Schools */
 
 .banner-badge {
+  background-color: black;
 	color: white;
-	background-color: black;
 }
 
 .grid-info-box {
@@ -188,17 +188,17 @@
 	background-color: #F8F9FA;
 	box-shadow: 5px 5px 5px;
 	font-weight: 700;
+  max-width: 500px;
 	padding: 10px 10px 0px 10px;
-	max-width: 500px;
 }
 
 .flip-card {
 	background-color: transparent;
-	width: 300px;
-	height: 200px;
+  box-shadow: 5px 5px 5px;
+  height: 200px;
 	margin-bottom: 20px;
 	perspective: 1000px;
-	box-shadow: 5px 5px 5px;
+  width: 300px;
 
 	&:hover {
 		.flip-card-inner {
@@ -209,27 +209,27 @@
 }
 
 .flip-card-back {
-	background-color: #F8F9FA;
-	color: black;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+  color: black;
   backface-visibility: hidden;
+	background-color: #F8F9FA;
+  height: 100%;
+	position: absolute;
+  transform: rotateY(180deg);
+	width: 100%;
 
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	transform: rotateY(180deg);
 }
 
 .flip-card-front {
+  backface-visibility: hidden;
 	background-color: #F8F9FA;
 	color: black;
 	position: absolute;
+  height: 100%;
 	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
 
 	display: flex;
 	align-items: center;
@@ -238,12 +238,12 @@
 }
 
 .flip-card-inner {
-	position: relative;
-	width: 100%;
 	height: 100%;
+  position: relative;
 	text-align: center;
+  transform-style: preserve-3d;
 	transition: transform 0.8s;
-	transform-style: preserve-3d;
+  width: 100%;
 }
 
 .picture-box {
