@@ -1,7 +1,8 @@
 <template>
-    <hr>
     
     <footer class="center-text">
+
+      <hr>
 
       <p><time datetime="2021">September and October 2021</time></p>
 
