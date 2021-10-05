@@ -29,7 +29,6 @@
 
         </div> <!-- end of .picture-box -->
 
-
         <div class="info-box">
 
           <!-- loop on types in the array -->
@@ -256,7 +255,6 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    justify-items: center;
   }
 
   /* Style the back side */
@@ -280,32 +278,5 @@
           justify-content: center;
       }
   }
-  // @media screen and (min-width: 760px) and (max-width: 960px) {
-  //     body
-  //     {
-  //         font-size: 1em;
-  //     }
-  //     div, figure, figcaption {
-  //         width: 150px;
-  //     }
-  // }
-  // @media screen and (min-width: 961px) and (max-width: 1100px) {
-  //     body
-  //     {
-  //         font-size: 1.2em;
-  //     }
-  //     div, figure, figcaption {
-  //         width: 200px;
-  //     }
-  // }
-  // @media screen and (min-width: 1100px) {
-  //     body
-  //     {
-  //         font-size: 1.3em;
-  //     }
-  //     div, figure, figcaption {
-  //         width: 250px;
-  //     }
-  // }
 
 </style>
