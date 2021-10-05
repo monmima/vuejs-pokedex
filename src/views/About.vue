@@ -35,6 +35,8 @@
 
           <div class="banner-badge">
             <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
+              <!-- insert comma if item not the last one -->
+              <span v-if="index + 1 !== response.types.length">, </span>
             </span>
           </div>
 
