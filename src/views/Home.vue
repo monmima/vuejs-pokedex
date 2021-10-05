@@ -1,8 +1,6 @@
 
-
 <template>
   <div class="about">
-
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
     <p>{{ this.$route.params.id }}</p>
@@ -21,13 +19,10 @@
 
     <div class="pokegrid" v-if="arrPokemons.length > 0">
 
-
       <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
         
-
         <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
         <router-link :to="`/about/${item.id}`" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
-
 
       </figure>
 
@@ -46,7 +41,6 @@
 </template>
 
 <script>
-
 
     export default ({
         data() {
@@ -80,7 +74,6 @@
             }
 
           },
-
 
           fetchData(curOffset) {
             console.log(curOffset);
@@ -128,16 +121,13 @@
     margin: 50px 20px 0px;
     min-width: 200px;
     padding: 20px;
-
-
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-  }
-
-  figure img {
-    max-width: 96px;
+    img {
+      max-width: 96px;
+    }
   }
 
   input {
@@ -152,8 +142,7 @@
 
   /*MEDIA QUERIES*/
   @media screen and (max-width: 759px) {
-      body
-      {
+      body {
           font-size: 0.8em;         
       }
       /* NO MORE GRID HERE, ONLY FLEX */
@@ -165,8 +154,7 @@
       }
   }
   @media screen and (min-width: 760px) and (max-width: 960px) {
-      body
-      {
+      body {
           font-size: 1em;
       }
       .pokegrid {
@@ -175,8 +163,7 @@
       }
   }
   @media screen and (min-width: 961px) and (max-width: 1100px) {
-      body
-      {
+      body {
           font-size: 1.2em;
       }
       .pokegrid {
@@ -185,8 +172,7 @@
       }
   }
   @media screen and (min-width: 1230px) {
-      body
-      {
+      body {
           font-size: 1.3em;
       }
       .pokegrid {

@@ -66,7 +66,6 @@
             <p>{{ response.stats[5].base_stat }}</p>
           </div>
 
-
         </div> <!-- end of .info-box -->
 
       </div> <!-- end of .grid-one-pokemon -->
@@ -83,19 +82,14 @@
         </div>
       </div>
 
-
       <!-- end of evolution section -->
-
 
     </div> <!-- end of loop -->
 
     <!-- response array is empty; Pokémon might be non-existant -->
     <div v-else>
-      If a result for your query does not appear here after a few seconds, there was an error or your Pokémon is non-existent.
+      If a result for your query does not appear here within a few seconds, there was an error or your Pokémon is non-existent.
     </div>
-
-
-
 
   </div> <!-- end of .about div -->
 </template>
@@ -145,7 +139,6 @@
       async fetchOne() {
           // https://www.pluralsight.com/guides/handling-nested-http-requests-using-the-fetch-api
 
-          // log the content of the queries
           this.response = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.id}/`).then(response => response.json());
           await console.log("Fetched Pokémon:");
           await console.log(this.response);
@@ -171,112 +164,104 @@
 </script>
 
 <style scoped lang="scss">
-  .banner-badge {
-    color: white;
-    background-color: black;
-  }
 
-  .grid-one-pokemon {
-    display: grid;
+/* Flip card rules by W3Schools */
 
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-  }
+.banner-badge {
+	color: white;
+	background-color: black;
+}
 
-  .info-box {
-    background-color: #F8F9FA;
-    box-shadow: 5px 5px 5px;
-    font-weight: 700;
-    padding: 10px 10px 0px 10px;
-    max-width: 500px;
-  }
+.grid-info-box {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+}
 
-  .grid-info-box {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center;
-  }
+.grid-one-pokemon {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+}
 
-  .picture-box {
-    display: flex;
+.info-box {
+	background-color: #F8F9FA;
+	box-shadow: 5px 5px 5px;
+	font-weight: 700;
+	padding: 10px 10px 0px 10px;
+	max-width: 500px;
+}
 
-    flex-direction: column;
-    align-items: center;
-  }
+.flip-card {
+	background-color: transparent;
+	width: 300px;
+	height: 200px;
+	margin-bottom: 20px;
+	perspective: 1000px;
+	box-shadow: 5px 5px 5px;
 
-  /* W3Schools flip card */
+	&:hover {
+		.flip-card-inner {
+			transform: rotateY(180deg);
+		}
+	}
 
-  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-  .flip-card {
-    background-color: transparent;
-    width: 300px;
-    height: 200px;
-    /* border: 1px solid #f1f1f1; */
-    margin-bottom: 20px;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
 
-  }
+.flip-card-back {
+	background-color: #F8F9FA;
+	color: black;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+  backface-visibility: hidden;
 
-  .flip-card {
-    box-shadow: 5px 5px 5px;
-  }
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	transform: rotateY(180deg);
+}
 
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+.flip-card-front {
+	background-color: #F8F9FA;
+	color: black;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
 
-  }
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
 
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
 
-  .flip-card-front, .flip-card-back {
-    /* Style the front side (fallback if image is missing) */
-    background-color: #F8F9FA;
-    color: black;
-    
+.picture-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
-    /* Position the front and back side */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-
-    /* flex */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* Style the back side */
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
-
-  /* media queries */
-
-  @media screen and (max-width: 1025px) {
-      body
-      {
-          font-size: 0.8em;         
-      }
-      /* NO MORE GRID HERE, ONLY FLEX */
-      .grid-one-pokemon {
-          display: flex;
-
-          align-items: center;
-          flex-direction: column;
-          justify-content: center;
-      }
-  }
+@media screen and (max-width: 1025px) {
+	body {
+		font-size: 0.8em;
+	}
+	.grid-one-pokemon {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
 
 </style>
