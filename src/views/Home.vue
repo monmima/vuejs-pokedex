@@ -15,7 +15,7 @@
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
 
-      <div style="text-align: left">
+      <div class="credits">
         <p>This project was made possible thanks to:</p>
 
         <ul>
@@ -28,8 +28,6 @@
           <li>W3Schools</li>
         </ul>
       </div>
-
-
 
     </div>
 
@@ -51,7 +49,7 @@
     <div>
       <button class="btn btn-primary" @click="addOffset">Show me more Pokémons</button>
     </div>
-
+    
 
   </div>
 </template>
@@ -146,11 +144,21 @@
     img {
       max-width: 96px;
     }
+
   }
 
   input {
     border-radius: 5px;
     height: 40px;
+  }
+
+  .credits {
+    text-align: left;
+
+    li {
+      // list-style-type: '👉 ';
+      list-style-image: url("../../src/assets/pokeball-bullet.png");
+    }
   }
 
   .flex-media-queries {
