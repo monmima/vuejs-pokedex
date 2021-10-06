@@ -3,7 +3,7 @@
   <div class="about">
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
-    <p>{{ this.$route.params.id }}</p>
+    <p>Current page{{ this.$route.params.id }}</p>
     
     <hr>
 
@@ -32,6 +32,7 @@
 
     <div>
       <button class="btn btn-primary" @click="removeOffset">(===</button>
+      <Dropdown />
       <button class="btn btn-primary" @click="addOffset">===)</button>
     </div>
 
@@ -59,6 +60,7 @@
 </template>
 
 <script>
+    import Dropdown from '../components/Dropdown.vue'
 
     export default ({
         data() {
@@ -68,17 +70,20 @@
             arrPokemons: []
           }
         },
+        components: {
+          Dropdown
+        },
         methods: {
 
           removeOffset() {
-
-            console.log(this.offset -= 15);
-            this.fetchData(this.offset);
-
+            if (this.offset - 15 >= 0) {
+              this.offset -= 15;
+              this.fetchData(this.offset);
+            }
           },
 
           addOffset() {
-            console.log(this.offset += 15);
+            this.offset += 15;
             this.fetchData(this.offset);
           },
 
@@ -98,23 +103,15 @@
             // empty content of the array before printing anything else to the view
             this.arrPokemons = [];
 
+            // print current offset
             console.log(this.offset);
+
+            // 
             
+            // fetch loop
             for (let i = this.offset + 1; i < this.offset + 16; i++) {
               
-              fetch(`https://pokeapi.co/api/v2/pokemon/` + i)
-                  .then(res => res.json())
-
-                  .then(data => this.response = data) // pass the data to the response variable
-
-                  .then(data => {
-                    // this.arrPokemons = [];
-                    this.arrPokemons.push(data);
-                  })
-
-              .catch(function (err) {
-                  console.log(`ERROR CATCHED on line ${i}: ${err}`);
-              });
+              this.response = fetch(`https://pokeapi.co/api/v2/pokemon/` + i).then(response => response.json().then(data => { this.arrPokemons.push(data); }));
 
             } // end of for loop
 

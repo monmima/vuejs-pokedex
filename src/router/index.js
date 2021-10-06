@@ -7,8 +7,7 @@ const routes = [
 
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/page/0'
   },
 
   {
@@ -26,7 +25,11 @@ const routes = [
     component: About
   },
 
-  
+  {
+    path: '/page/:id',
+    name: 'Home',
+    component: Home
+  },
 
   { path: '/:PageNotFound(.*)*', name: 'PageNotFound', component: PageNotFound },
   
