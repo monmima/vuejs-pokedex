@@ -78,13 +78,13 @@
           removeOffset() {
             if (this.offset - 15 >= 0) {
               this.offset -= 15;
-              this.fetchData(this.offset);
+              this.fetchData();
             }
           },
 
           addOffset() {
             this.offset += 15;
-            this.fetchData(this.offset);
+            this.fetchData();
           },
 
           handleSubmit() {
@@ -122,7 +122,7 @@
         },
 
         mounted: function() {
-          this.fetchData(this.offset);
+          this.fetchData();
         }
 
     });
