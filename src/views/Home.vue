@@ -4,7 +4,6 @@
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
     <p>{{ this.$route.params.id }}</p>
-    <p>{{ this.$route.params.curOffSet }}</p>
     
     <hr>
 
@@ -72,10 +71,10 @@
         methods: {
 
           removeOffset() {
-            if (this.offset > 0) {
-              console.log(this.offset -= 15);
-              this.fetchData(this.offset);
-            }
+
+            console.log(this.offset -= 15);
+            this.fetchData(this.offset);
+
           },
 
           addOffset() {
@@ -95,13 +94,13 @@
 
           },
 
-          fetchData(curOffset) {
+          fetchData() {
             // empty content of the array before printing anything else to the view
             this.arrPokemons = [];
 
-            console.log(curOffset);
+            console.log(this.offset);
             
-            for (let i = curOffset + 1; i < curOffset + 16; i++) {
+            for (let i = this.offset + 1; i < this.offset + 16; i++) {
               
               fetch(`https://pokeapi.co/api/v2/pokemon/` + i)
                   .then(res => res.json())
