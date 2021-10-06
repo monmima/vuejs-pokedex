@@ -38,7 +38,7 @@
 
     <div class="pokegrid" v-if="arrPokemons.length > 0">
 
-      <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
+      <figure v-for="(item, index) in arrPokemons" :key="`${item.name}-${index}`">
         
         <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
         <router-link :to="`/about/${item.id}`" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>

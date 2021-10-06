@@ -1,18 +1,44 @@
 <template>
     <span class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">Dropdown index</button>
         <div class="dropdown-content">
-            <a href="/page/0">1-15</a>
+            <!-- <a href="/page/0">1-15</a>
             <a href="/page/15">16-30</a>
             <a href="/page/30">31-45</a>
-            <p>{{ this.$route.params.id }}</p>
+            <p>{{ this.$route.params.id }}</p> -->
+
+
+
+            <!-- <a v-for="(n, index) in 100" href="/page/30" :key="`index-${index}`">{{ myIndex += 15 }}</a> -->
+            <a v-for="i in myArr" :href="`/page/${i}`" :key="`index-${i}`">{{ i }}</a>
+
         </div>
     </span> 
 </template>
 
 <script>
     export default {
-        name: 'Dropdown'
+        name: 'Dropdown',
+        data() {
+          return {
+            myArr: []
+          }
+        },
+        methods: {
+
+            feedArrNb() {
+                for (let i = 0; i < 100; i += 15) {
+                    this. myArr.push(i);
+
+                    console.log(this.myArr);
+                }
+            }
+
+        },
+        mounted: function() {
+            this.feedArrNb();
+            console.log("test");
+        }
     }
 </script>
 

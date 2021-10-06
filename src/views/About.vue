@@ -34,7 +34,7 @@
           <!-- loop on types in the array -->
 
           <div class="banner-badge">
-            <span v-for="(item, index) in response.types" :key="`${item.name}${index}`"> {{ item.type.name }}
+            <span v-for="(item, index) in response.types" :key="`${item.name}-${index}`"> {{ item.type.name }}
               <!-- insert comma if item not the last one -->
               <span v-if="index + 1 !== response.types.length">, </span>
             </span>
@@ -102,13 +102,13 @@
 
   export default ({
       data() {
-          return {
-              response: {},
-              response2: {},
-              response3: {},
-              arrEvo: [],
-              description: "Loading..."
-          }
+        return {
+          response: {},
+          response2: {},
+          response3: {},
+          arrEvo: [],
+          description: "Loading..."
+        }
       },
       methods: {
         handleJSON() {
