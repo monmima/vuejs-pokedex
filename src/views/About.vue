@@ -90,7 +90,7 @@
 
     </div> <!-- end of loop -->
 
-    <!-- response array is empty; Pokémon might be non-existant -->
+    <!-- response array is empty; Pokémon might be non-existent -->
     <div v-else>
       If a result for your query does not appear here within a few seconds, there was an error or your Pokémon is non-existent.
     </div>
@@ -107,7 +107,7 @@
               response2: {},
               response3: {},
               arrEvo: [],
-              description: ""
+              description: "Loading..."
           }
       },
       methods: {
@@ -134,9 +134,14 @@
             this.arrEvo.shift();
           }
 
-          // store data in variable; the content of the variable is then rendered in the HTML
+          // store data description in an array; the content of the variable is then rendered in the HTML
           // used to avoid a bug in the console even if the data is rendering correctly in the HTML if this.response2.flavor_text_entries[0].flavor_text is used directly; icigo
-          this.description = this.response2.flavor_text_entries[0].flavor_text.replace("\u000c", " ");
+          // use a filter loop to filter out the first item whose language is English
+          // used because language are not stored in a specific order and you might end up with Chinese showing up in the interface because Chinese is at index 0
+          const objDesc = this.response2.flavor_text_entries.find((item) => item.language.name === "en");
+          this.description = objDesc.flavor_text.replace("\u000c", " ");
+          this.description = this.description.replace("POKéMON", "POKÉMON");
+          // console.log(this.description);
 
           // log name to console
           console.log(`Evolution array for ${this.response2.name}:`);
