@@ -31,6 +31,11 @@
 
     </div>
 
+    <div>
+      <button class="btn btn-primary" @click="removeOffset">(===</button>
+      <button class="btn btn-primary" @click="addOffset">===)</button>
+    </div>
+
     <div class="pokegrid" v-if="arrPokemons.length > 0">
 
       <figure v-for="(item, index) in arrPokemons" :key="`${item.name}${index}`">
@@ -47,9 +52,9 @@
     </div>
 
     <div>
-      <button class="btn btn-primary" @click="addOffset">Show me more Pokémons</button>
+      <button class="btn btn-primary" @click="removeOffset">(===</button>
+      <button class="btn btn-primary" @click="addOffset">===)</button>
     </div>
-    
 
   </div>
 </template>
@@ -58,18 +63,19 @@
 
     export default ({
         data() {
-            return {
-                response: [],
-                offset: 0,
-                arrPokemons: []
-            }
+          return {
+            response: [],
+            offset: 0,
+            arrPokemons: []
+          }
         },
         methods: {
 
           removeOffset() {
-            console.log(this.offset -= 15);
-            this.fetchData(this.offset);
-
+            if (this.offset > 0) {
+              console.log(this.offset -= 15);
+              this.fetchData(this.offset);
+            }
           },
 
           addOffset() {
@@ -84,12 +90,15 @@
             if (INPUT.length > 0) {
               window.location.replace(`/about/${INPUT}`);
             } else {
-              alert("The input field must not be empty.");
+              alert("The input field cannot be empty.");
             }
 
           },
 
           fetchData(curOffset) {
+            // empty content of the array before printing anything else to the view
+            this.arrPokemons = [];
+
             console.log(curOffset);
             
             for (let i = curOffset + 1; i < curOffset + 16; i++) {
@@ -100,6 +109,7 @@
                   .then(data => this.response = data) // pass the data to the response variable
 
                   .then(data => {
+                    // this.arrPokemons = [];
                     this.arrPokemons.push(data);
                   })
 
