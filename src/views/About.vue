@@ -113,7 +113,12 @@
       methods: {
         handleJSON() {
           // push an evolution to the arrEvo
-          this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
+          try {
+            this.arrEvo.push(this.response3.chain.evolves_to[0].species.name);
+          }
+          catch {
+            console.log("CAUGHT ERROR: this.arrEvo.push(this.response3.chain.evolves_to[0].species.name); is non-existent for this Pokémon.");
+          }
           
           // push another evolution to arrEvo if it exists
           try {
