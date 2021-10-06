@@ -104,8 +104,8 @@
             this.arrPokemons = [];
 
             // print current offset
-            console.log(typeof(this.offset));
-            console.log(typeof(this.$route.params.id));
+            // console.log(typeof(this.offset));
+            // console.log(typeof(this.$route.params.id));
 
             // 
             

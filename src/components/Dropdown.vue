@@ -22,15 +22,13 @@
             feedArrNb() {
                 for (let i = 0; i < 100; i += 15) {
                     this. myArr.push(i);
-
-                    console.log(this.myArr);
+                    // console.log(this.myArr);
                 }
             }
 
         },
         mounted: function() {
             this.feedArrNb();
-            console.log("test");
         }
     }
 </script>
