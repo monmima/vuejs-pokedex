@@ -3,7 +3,7 @@
   <div class="about">
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
-    <p>Current page{{ this.$route.params.id }}</p>
+    <p>Current page: {{ this.$route.params.id }}</p>
     
     <hr>
 
@@ -66,7 +66,7 @@
         data() {
           return {
             response: [],
-            offset: 0,
+            offset: Number(this.$route.params.id),
             arrPokemons: []
           }
         },
@@ -104,7 +104,8 @@
             this.arrPokemons = [];
 
             // print current offset
-            console.log(this.offset);
+            console.log(typeof(this.offset));
+            console.log(typeof(this.$route.params.id));
 
             // 
             

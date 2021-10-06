@@ -2,9 +2,9 @@
     <span class="dropdown">
         <button class="dropbtn">Dropdown</button>
         <div class="dropdown-content">
-            <a href="/page/0">Link 1</a>
-            <a href="/page/15">Link 1</a>
-            <a href="/page/30">Link 1</a>
+            <a href="/page/0">1-15</a>
+            <a href="/page/15">16-30</a>
+            <a href="/page/30">31-45</a>
             <p>{{ this.$route.params.id }}</p>
         </div>
     </span> 
