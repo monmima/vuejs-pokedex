@@ -1,6 +1,6 @@
 <template>
     <span class="dropdown">
-        <button class="dropbtn">Dropdown index</button>
+        <button class="dropbtn btn btn-primary">Dropdown index</button>
         <div class="dropdown-content">
 
             <a v-for="i in myArr" :title="`View Pokémons ${i} to ${i + 15}`" :href="`/page/${i}`" :key="`index-${i}`">{{ i }} to {{ i + 15 }}</a>
@@ -20,7 +20,7 @@
         methods: {
 
             feedArrNb() {
-                for (let i = 0; i < 100; i += 15) {
+                for (let i = 0; i < 890; i += 15) {
                     this. myArr.push(i);
                     // console.log(this.myArr);
                 }
@@ -34,15 +34,6 @@
 </script>
 
 <style lang="scss">
-
-    /* Dropdown Button */
-    .dropbtn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
 
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
@@ -58,6 +49,9 @@
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+
+        height: 300px;
+        overflow-y: scroll;
     }
 
     /* Links inside the dropdown */
@@ -77,10 +71,5 @@
     .dropdown:hover .dropdown-content {
         display: block;
     }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
-        background-color: #3e8e41;
-    } 
 
 </style>
