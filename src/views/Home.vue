@@ -1,30 +1,13 @@
 
 <template>
+  <Modal />
+
   <div class="about">
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
     <p>Page loaded: {{ this.$route.params.id || "root page" }}</p>
     
     <hr>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Empty form</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Make sure the input field is not empty before you click on Submit!
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end modal -->
 
     <div class="flex-media-queries">
       <!-- {{ arrPokemons }} -->
@@ -80,6 +63,7 @@
 
 <script>
     import Dropdown from '../components/Dropdown.vue'
+    import Modal from '../components/Modal.vue'
 
     export default ({
         data() {
@@ -90,7 +74,8 @@
           }
         },
         components: {
-          Dropdown
+          Dropdown,
+          Modal
         },
         methods: {
 
