@@ -37,39 +37,39 @@
 
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
-        position: relative;
         display: inline-block;
+        position: relative;
+
+        /* Show the dropdown menu on hover */
+        &:hover {
+            .dropdown-content {
+                display: block;
+            }
+        }
+
     }
 
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        display: none;
+        background-color: #f1f1f1;
+        height: 300px;
+        min-width: 160px;
+        overflow-y: scroll;
+        position: absolute;
         z-index: 1;
 
-        height: 300px;
-        overflow-y: scroll;
-    }
-
-    /* Links inside the dropdown */
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-        background-color: #ddd;
-    }
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-        display: block;
+        /* Links inside the dropdown */
+        a {
+            color: black;
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            &:hover {
+                background-color: #ddd;
+            }
+        }
     }
 
 </style>
