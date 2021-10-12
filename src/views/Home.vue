@@ -74,47 +74,9 @@
           Dropdown
         },
         methods: {
-
-          sorta(myData) {
-            this.arrPokemons.push(myData);
-            
-            this.arrPokemons.sort(this.sortById);
-            console.log(this.arrPokemons);
-          },
-
-          sortById(a, b) {
-              // sort by id
-              if (a.id > b.id) {
-                  return 1;
-              } else if (b.id > a.id) {
-                  return -1;
-              } else {
-                  return 0;
-              }
-          },
-
-          removeOffset() {
-            if (this.offset - 15 >= 0) {
-              this.offset -= 15;
-              this.fetchData();
-            }
-          },
-
           addOffset() {
             this.offset += 15;
             this.fetchData();
-          },
-
-          handleSubmit() {
-            const INPUT = document.querySelector("input").value;
-
-            // console.log(INPUT);
-            if (INPUT.length > 0) {
-              window.location.replace(`/about/${INPUT}`);
-            } else {
-              alert("The input field cannot be empty.");
-            }
-
           },
 
           fetchData() {
@@ -128,7 +90,44 @@
 
             } // end of for loop
 
-          } // end of fetch data
+          }, // end of fetch data
+
+          handleSubmit() {
+            const INPUT = document.querySelector("input").value;
+
+            // console.log(INPUT);
+            if (INPUT.length > 0) {
+              window.location.replace(`/about/${INPUT}`);
+            } else {
+              alert("The input field cannot be empty.");
+            }
+
+          },
+
+          sortById(a, b) {
+              // sort by id
+              if (a.id > b.id) {
+                  return 1;
+              } else if (b.id > a.id) {
+                  return -1;
+              } else {
+                  return 0;
+              }
+          },
+
+          sorta(myData) {
+            this.arrPokemons.push(myData);
+            
+            this.arrPokemons.sort(this.sortById);
+            console.log(this.arrPokemons);
+          },
+
+          removeOffset() {
+            if (this.offset - 15 >= 0) {
+              this.offset -= 15;
+              this.fetchData();
+            }
+          }
 
         },
 
