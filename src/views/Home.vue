@@ -75,6 +75,24 @@
         },
         methods: {
 
+          sorta(myData) {
+            this.arrPokemons.push(myData);
+            
+            this.arrPokemons.sort(this.sortById);
+            console.log(this.arrPokemons);
+          },
+
+          sortById(a, b) {
+              // sort by id
+              if (a.id > b.id) {
+                  return 1;
+              } else if (b.id > a.id) {
+                  return -1;
+              } else {
+                  return 0;
+              }
+          },
+
           removeOffset() {
             if (this.offset - 15 >= 0) {
               this.offset -= 15;
@@ -102,21 +120,13 @@
           fetchData() {
             // empty content of the array before printing anything else to the view
             this.arrPokemons = [];
-
-            // print current offset
-            // console.log(typeof(this.offset));
-            // console.log(typeof(this.$route.params.id));
-
-            // 
             
             // fetch loop
             for (let i = this.offset + 1; i < this.offset + 16; i++) {
               
-              this.response = fetch(`https://pokeapi.co/api/v2/pokemon/` + i).then(response => response.json().then(data => { this.arrPokemons.push(data); }));
+              this.response = fetch(`https://pokeapi.co/api/v2/pokemon/` + i).then(response => response.json().then(data => { this.sorta(data) }));
 
             } // end of for loop
-
-            console.log(this.arrPokemons);
 
           } // end of fetch data
 

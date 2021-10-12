@@ -7,4 +7,3 @@ Project on Github at https://github.com/monmima/vuejs-pokedex.
 ## Ideas for improvements
 
 - Add charts
-- Pagination
