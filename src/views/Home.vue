@@ -3,7 +3,7 @@
   <div class="about">
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
-    <p>Current page: {{ this.$route.params.id }}</p>
+    <p>Page loaded: {{ this.$route.params.id }}</p>
     
     <hr>
 
