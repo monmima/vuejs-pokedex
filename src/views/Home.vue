@@ -3,7 +3,7 @@
   <div class="about">
 
     <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
-    <p>Page loaded: {{ this.$route.params.id }}</p>
+    <p>Page loaded: {{ this.$route.params.id || 0 }}</p>
     
     <hr>
 
@@ -66,7 +66,7 @@
         data() {
           return {
             response: [],
-            offset: Number(this.$route.params.id),
+            offset: Number(this.$route.params.id) || 0,
             arrPokemons: []
           }
         },

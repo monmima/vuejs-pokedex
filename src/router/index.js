@@ -7,7 +7,8 @@ const routes = [
 
   {
     path: '/',
-    redirect: '/page/0'
+    // redirect: '/page/0'
+    component: Home
   },
 
   {
