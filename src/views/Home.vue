@@ -157,6 +157,10 @@
     grid-template-columns: $fr;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   button {
     margin: 25px;
   }

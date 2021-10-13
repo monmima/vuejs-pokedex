@@ -193,6 +193,10 @@ $background-color: #F8F9FA;
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Flip card rules by W3Schools */
 
 .banner-badge {
