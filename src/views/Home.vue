@@ -167,7 +167,7 @@
 
   figure {
     background-color: #F8F9FA;
-    box-shadow: 5px 5px 5px;
+    // box-shadow: 5px 5px 5px;
     margin: 50px 20px 0px;
     min-width: 200px;
     padding: 20px;

@@ -51,9 +51,9 @@
 
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         display: none;
-        background-color: #f1f1f1;
+        background-color: #c5c1c1;
         height: 300px;
         min-width: 160px;
         overflow-y: scroll;

@@ -218,7 +218,7 @@ a {
 
 .info-box {
 	background-color: $background-color;
-	box-shadow: 5px 5px 5px;
+	// box-shadow: 5px 5px 5px;
 	font-weight: 700;
   max-width: 500px;
 	padding: 10px 10px 0px 10px;
@@ -227,7 +227,7 @@ a {
 .flip-card {
 
 	background-color: transparent;
-  box-shadow: 5px 5px 5px;
+  // box-shadow: 5px 5px 5px;
   height: 200px;
 	margin-bottom: 20px;
 	perspective: 1000px;

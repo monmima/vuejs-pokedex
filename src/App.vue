@@ -24,6 +24,10 @@ export default {
 
 <style lang="scss">
 
+  body {
+    background-color: lightgray;
+  }
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     min-height: 100vh;
