@@ -24,9 +24,9 @@ export default {
 
 <style lang="scss">
 
-  body {
-    background-color: lightgray;
-  }
+  // body {
+  //   background-color: lightgray;
+  // }
 
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

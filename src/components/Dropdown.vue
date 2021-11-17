@@ -1,6 +1,6 @@
 <template>
     <span class="dropdown">
-        <button class="dropbtn btn btn-primary">Dropdown index</button>
+        <button class="dropbtn btn btn-primary">Pagination</button>
         <div class="dropdown-content">
 
             <a v-for="i in myArr" :title="`View Pokémons ${i} to ${i + 15}`" :href="`/page/${i}`" :key="`index-${i}`">{{ i }} to {{ i + 15 }}</a>

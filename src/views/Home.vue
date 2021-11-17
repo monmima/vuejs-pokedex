@@ -4,38 +4,22 @@
 
   <div class="about">
 
-    <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
-    <p>Page loaded: {{ this.$route.params.id || "root page" }}</p>
-    
-    <hr>
+    <nav>
+      <h1>Welcome to my super <strong>VueJS 3</strong> Pokédex</h1>
 
-    <div class="flex-media-queries">
-      <!-- {{ arrPokemons }} -->
       <form action="#" @submit.prevent="handleSubmit()" >
         <input type="text" placeholder="Search a Pokémon..." focus>
         <button class="btn btn-primary" type="submit" @click="showModal">Submit</button>
       </form>
+      
+    </nav>
 
-      <div class="credits">
-        <p>This project was made possible thanks to:</p>
+    <hr>
 
-        <ul>
-          <li>VueJS 3</li>
-          <li>PokéAPI</li>
-          <li>Bootstrap</li>
-          <li>SCSS</li>
-          <li>Heroku (<a href="https://vuejs-pokedex.herokuapp.com/" title="Link to the project on Heroku">project on Heroku</a>)</li>
-          <li>Github (<a href="https://github.com/monmima/vuejs-pokedex" title="Link to the project on Github">project on Github</a>)</li>
-          <li>W3Schools</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div>
-      <button class="btn btn-primary" @click="removeOffset">(===</button>
+    <div class="font-size-plus">
+      <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
       <Dropdown />
-      <button class="btn btn-primary" @click="addOffset">===)</button>
+      <button class="btn btn-primary" @click="addOffset">&rArr;</button>
     </div>
 
     <div class="pokegrid" v-if="arrPokemons.length > 0">
@@ -53,9 +37,9 @@
       Loading...
     </div>
 
-    <div>
-      <button class="btn btn-primary" @click="removeOffset">(===</button>
-      <button class="btn btn-primary" @click="addOffset">===)</button>
+    <div class="font-size-plus">
+      <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
+      <button class="btn btn-primary" @click="addOffset">&rArr;</button>
     </div>
 
   </div>
@@ -168,7 +152,7 @@
   figure {
     background-color: #F8F9FA;
     // box-shadow: 5px 5px 5px;
-    margin: 50px 20px 0px;
+    margin: 25px 20px 25px;
     min-width: 200px;
     padding: 20px;
 
@@ -188,13 +172,15 @@
     height: 40px;
   }
 
-  .credits {
-    margin: 5px;
-    text-align: left;
+  nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 
-    li {
-      // list-style-type: '👉 ';
-      list-style-image: url("../../src/assets/pokeball-bullet.png");
+    * {
+      margin: 15px;
     }
   }
 
@@ -203,6 +189,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  .font-size-plus button, .font-size-plus span button {
+    font-size: 20px;
+  }
+
+  .pokegrid {
+    background-color: #FFCB05;
   }
 
   /*MEDIA QUERIES*/
@@ -218,20 +212,21 @@
         justify-content: center;
       }
   }
-  @media screen and (min-width: 760px) and (max-width: 960px) {
+  @media screen and (min-width: 760px) and (max-width: 992px) {
       body {
           font-size: 1em;
       }
       .pokegrid {
-        @include grid(1fr 1fr 1fr);
+        @include grid(1fr 1fr);
       }
   }
-  @media screen and (min-width: 961px) and (max-width: 1229px) {
+  @media screen and (min-width: 993px) and (max-width: 1229px) {
       body {
           font-size: 1.2em;
       }
       .pokegrid {
-        @include grid(1fr 1fr 1fr 1fr);
+        // background-color: green !important;
+        @include grid(1fr 1fr 1fr);
       }
   }
   @media screen and (min-width: 1230px) {
@@ -239,7 +234,7 @@
           font-size: 1.3em;
       }
       .pokegrid {
-        @include grid(1fr 1fr 1fr 1fr 1fr);
+        @include grid(1fr 1fr 1fr 1fr);
       }
   }
 
