@@ -14,30 +14,33 @@
       
     </nav>
 
-    <hr>
 
-    <div class="font-size-plus">
-      <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
-      <Dropdown />
-      <button class="btn btn-primary" @click="addOffset">&rArr;</button>
-    </div>
+    <main class="fond-jaune">
+      <div class="font-size-plus">
+        <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
+        <Dropdown />
+        <button class="btn btn-primary" @click="addOffset">&rArr;</button>
+      </div>
 
-    <div class="pokegrid" v-if="arrPokemons.length > 0">
+      <div class="pokegrid container" v-if="arrPokemons.length > 0">
 
-      <figure v-for="(item, index) in arrPokemons" :key="`${item.name}-${index}`">
-        
-        <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
-        <router-link :to="`/about/${item.id}`" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
+        <figure v-for="(item, index) in arrPokemons" :key="`${item.name}-${index}`">
+          
+          <img :src="`${item.sprites.front_default}`" :alt="`Image of ${item.name}`">
+          <router-link :to="`/about/${item.id}`" :title="item.name.toUpperCase()">{{ item.name.toUpperCase() }}</router-link>
 
-      </figure>
+        </figure>
 
-    </div>
+      </div>
 
-    <div v-else>
-      Loading...
-    </div>
+      <div v-else>
+        Loading...
+      </div>
 
-    <div class="font-size-plus">
+    </main>
+
+
+    <div class="font-size-plus fond-jaune">
       <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
       <button class="btn btn-primary" @click="addOffset">&rArr;</button>
     </div>
@@ -173,11 +176,14 @@
   }
 
   nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+    input {
+      width: 50%;
+    }
 
     * {
       margin: 15px;
@@ -196,6 +202,10 @@
     justify-content: space-around;
   }
 
+  .fond-jaune {
+    background-color: #FFCB05;;
+  }
+
   .font-size-plus button, .font-size-plus span button {
     font-size: 20px;
   }
@@ -208,6 +218,11 @@
   @media screen and (max-width: 759px) {
       body {
         font-size: 0.8em;         
+      }
+      nav {
+        input {
+          width: 200px;
+        }
       }
       /* NO MORE GRID HERE, ONLY FLEX */
       .pokegrid {
