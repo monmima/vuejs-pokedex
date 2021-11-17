@@ -184,6 +184,11 @@
     }
   }
 
+  .btn-primary {
+    background-color: #385FAA;
+    border-color: #385FAA;
+  }
+
   .flex-media-queries {
     display: flex;
     flex-direction: row;

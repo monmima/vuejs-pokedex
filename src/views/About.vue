@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>Pokémon Details Page</h1>
-    <p>Parameter used for this query: {{ this.$route.params.id }}</p>
+
     <!-- <p>{{ this.response.id }}</p> -->
     
     <hr>
@@ -89,6 +89,7 @@
       <!-- end of evolution section -->
 
     </div> <!-- end of loop -->
+    
 
     <!-- response array is empty; Pokémon might be non-existent -->
     <div v-else>

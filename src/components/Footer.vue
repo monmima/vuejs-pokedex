@@ -2,6 +2,11 @@
     
     <footer class="center-text">
 
+      
+      <div v-if="this.$route.fullPath !== '/'">
+        Parameter used to access current page: "{{ this.$route.params.id }}".
+      </div>
+
       <div class="credits">
         <p>This project was made possible thanks to:</p>
 
@@ -37,6 +42,13 @@
     background-color: #385FAA;
     font-size: 0.8em;
     padding-top: 1rem !important;
+
+    a {
+      color: #FFCB05;
+      &:hover {
+        color: white;
+      }
+    }
   }
 
   li, p {

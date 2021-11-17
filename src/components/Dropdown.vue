@@ -35,6 +35,11 @@
 
 <style lang="scss">
 
+    .btn-primary {
+        background-color: #385FAA;
+        border-color: #385FAA;
+    }
+
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
         display: inline-block;
