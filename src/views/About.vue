@@ -7,7 +7,7 @@
     <hr>
 
     <!-- condition to check if response object is empty -->
-    <div v-if="Object.entries(response).length > 0" :key="this.$route.params.id">
+    <div v-if="Object.entries(response).length > 0" :key="this.$route.params.id" class="background-yellow">
 
       <div class="grid-one-pokemon" >
 
@@ -203,6 +203,12 @@ a {
 .banner-badge {
   background-color: black;
 	color: white;
+}
+
+.background-yellow {
+  // background-color: black !important;
+  background-color: #FFCB05 !important;
+  padding: 35px 0 25px 0;
 }
 
 .grid-info-box {

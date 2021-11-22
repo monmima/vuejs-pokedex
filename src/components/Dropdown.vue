@@ -57,8 +57,10 @@
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
         // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border: 2px solid #c5c1c1;
         display: none;
-        background-color: #c5c1c1;
+        background-color: white;
+        // background-color: #c5c1c1;
         height: 300px;
         min-width: 160px;
         overflow-y: scroll;
