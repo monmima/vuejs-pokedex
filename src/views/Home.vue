@@ -17,9 +17,9 @@
 
     <main class="fond-jaune">
       <div class="font-size-plus">
-        <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
+        <button class="btn btn-primary" @click="removeOffset">⇚</button>
         <Dropdown />
-        <button class="btn btn-primary" @click="addOffset">&rArr;</button>
+        <button class="btn btn-primary" @click="addOffset">⇛</button>
       </div>
 
       <div class="pokegrid container" v-if="arrPokemons.length > 0">
@@ -41,8 +41,8 @@
 
 
     <div class="font-size-plus fond-jaune">
-      <button class="btn btn-primary" @click="removeOffset">&lArr;</button>
-      <button class="btn btn-primary" @click="addOffset">&rArr;</button>
+      <button class="btn btn-primary" @click="removeOffset">⇚</button>
+      <button class="btn btn-primary" @click="addOffset">⇛</button>
     </div>
 
   </div>
@@ -182,7 +182,7 @@
     // align-items: center;
     // justify-content: center;
     input {
-      width: 50%;
+      width: 25%;
     }
 
     * {
